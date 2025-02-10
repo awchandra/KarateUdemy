@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-2-thread-1","id":1},{"content":"pool-2-thread-2","id":2},{"content":"pool-2-thread-3","id":3},{"content":"pool-2-thread-4","id":4},{"content":"pool-2-thread-5","id":5}];
+var items = [{"id":1,"group":1,"content":"conduitApp\/feature\/Articles[1:13]","start":1739198508613,"end":1739198511327,"title":"conduitApp\/feature\/Articles[1:13] 21:41:48.613-21:41:51.327 Create new article"},{"id":2,"group":2,"content":"conduitApp\/feature\/Articles[2:20]","start":1739198508613,"end":1739198512033,"title":"conduitApp\/feature\/Articles[2:20] 21:41:48.613-21:41:52.033 Create and delete article","className":"failed"},{"id":3,"group":3,"content":"conduitApp\/feature\/HomePage[1:5]","start":1739198508613,"end":1739198510868,"title":"conduitApp\/feature\/HomePage[1:5] 21:41:48.613-21:41:50.868 Get all tags"},{"id":4,"group":4,"content":"conduitApp\/feature\/HomePage[2:14]","start":1739198508613,"end":1739198511058,"title":"conduitApp\/feature\/HomePage[2:14] 21:41:48.613-21:41:51.058 Get 10 articles from the page","className":"failed"},{"id":5,"group":5,"content":"conduitApp\/feature\/HomeWork[1:7]","start":1739198508613,"end":1739198510392,"title":"conduitApp\/feature\/HomeWork[1:7] 21:41:48.613-21:41:50.392 Favorite articles"},{"id":6,"group":5,"content":"conduitApp\/feature\/HomeWork[2:22]","start":1739198510402,"end":1739198510413,"title":"conduitApp\/feature\/HomeWork[2:22] 21:41:50.402-21:41:50.413 Comment articles"},{"id":7,"group":5,"content":"conduitApp\/feature\/Hooks[1:16]","start":1739198510420,"end":1739198510430,"title":"conduitApp\/feature\/Hooks[1:16] 21:41:50.420-21:41:50.430 First Scenario"},{"id":8,"group":5,"content":"conduitApp\/feature\/Hooks[2:20]","start":1739198510693,"end":1739198510703,"title":"conduitApp\/feature\/Hooks[2:20] 21:41:50.693-21:41:50.703 Second Scenario"},{"id":9,"group":5,"content":"conduitApp\/feature\/SignUp[1:10]","start":1739198510825,"end":1739198511472,"title":"conduitApp\/feature\/SignUp[1:10] 21:41:50.825-21:41:51.472 New User Sign Up"},{"id":10,"group":3,"content":"conduitApp\/feature\/SignUp[2.1:59]","start":1739198510882,"end":1739198511456,"title":"conduitApp\/feature\/SignUp[2.1:59] 21:41:50.882-21:41:51.456 New User Sign Up Error"},{"id":11,"group":4,"content":"conduitApp\/feature\/SignUp[2.2:60]","start":1739198511070,"end":1739198511502,"title":"conduitApp\/feature\/SignUp[2.2:60] 21:41:51.070-21:41:51.502 New User Sign Up Error"},{"id":12,"group":1,"content":"conduitApp\/feature\/SignUp[2.3:61]","start":1739198511333,"end":1739198511751,"title":"conduitApp\/feature\/SignUp[2.3:61] 21:41:51.333-21:41:51.751 New User Sign Up Error"},{"id":13,"group":3,"content":"conduitApp\/feature\/SignUp[2.4:62]","start":1739198511463,"end":1739198511857,"title":"conduitApp\/feature\/SignUp[2.4:62] 21:41:51.463-21:41:51.857 New User Sign Up Error"},{"id":14,"group":5,"content":"conduitApp\/feature\/SignUp[2.5:63]","start":1739198511477,"end":1739198511895,"title":"conduitApp\/feature\/SignUp[2.5:63] 21:41:51.477-21:41:51.895 New User Sign Up Error"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
