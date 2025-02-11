@@ -76,7 +76,6 @@ Background: Define URL
         When method Get
         Then status 200
 
-    @debug
     Scenario: Sleep call
         * def sleep = function(pause){ java.lang.Thread.sleep(pause) }
         Given params { limit: 10, offset: 0 }
@@ -85,3 +84,15 @@ Background: Define URL
         * eval sleep(5000)
         Then status 200
 
+    
+    Scenario: Number to String
+        * def foo = 10
+        * def json = { "bar": #(foo+'') }
+        * match json == { "bar": '10' }
+    @debug
+    Scenario: String to Number
+        * def foo = '10'
+        * def json = { "bar": #(foo*1) }
+        * def json2 = { "bar": #(parseInt(foo)) }
+        * match json == { "bar": 10 }
+        * match json2 == { "bar": 10 }

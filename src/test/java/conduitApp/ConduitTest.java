@@ -23,7 +23,7 @@ class ConduitTest {
     @Test
     void testParallel() {
         Results results = Runner.path("classpath:conduitApp")
-                //.outputCucumberJson(true)
+                .outputCucumberJson(true)
                 .parallel(5);
                 generateReport(results.getReportDir());
         assertTrue(results.getFailCount() == 0, results.getErrorMessages());
